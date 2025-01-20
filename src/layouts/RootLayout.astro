@@ -1,0 +1,34 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SideNav from "../components/SideNav.astro";
+import "../styles/base.css";
+import "@fontsource/comic-mono";
+---
+
+<!doctype html>
+<html lang={Astro.currentLocale} class="scroll-smooth antialiased dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{Astro.currentLocale === "en" ? "fly0utWest's lair" : "Привет, я fly0utWest"}</title>
+  </head>
+  <body
+    class="bg-vallhalla bg-fixed bg-cover bg-no-repeat bg-center overscroll-none text-white"
+  >
+    <Header />
+    <div
+      class="max-w-screen-lg bg-background min-h-screen lg:mx-auto dark:lg:border-x-border lg:border-x-black lg:border-x-2"
+    >
+      <div class="relative flex flex-col lg:flex-row-reverse">
+        <SideNav />
+        <main class="p-6 flex flex-col gap-6 w-full">
+          <slot />
+        </main>
+        <!-- <Footer /> -->
+      </div>
+    </div>
+  </body>
+</html>

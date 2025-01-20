@@ -1,0 +1,17 @@
+---
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+import LocaleSwitcher from "./LocaleSwitcher.astro";
+---
+
+<nav
+  class="sticky bg-popover left-0 top-0 flex justify-between max-h-max items-center border-b-border border-b-2 lg:flex-col lg:h-screen lg:w-max lg:static lg:border-l-2 lg:border-l-border lg:border-b-none"
+>
+  <div class="px-6 py-4">
+    <div class="flex items-center">
+      <ThemeSwitcher />
+    </div>
+    <div>
+      <LocaleSwitcher />
+    </div>
+  </div>
+</nav>

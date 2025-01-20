@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+
+  const tools = await getCollection("tools");
+  if (!tools) return [];
+  console.log(tools);
+  return tools;
+---
+
+<section class="w-full bg-card rounded border-2 border-border p-6">
+  <div class="flex items-center gap-6">
+    <figure
+      class="w-32 h-32 bg-primary overflow-hidden rounded-full border-primary border-4 shrink-0"
+    >
+      <img class="w-full h-full object-fill" src="/cat.jpg" alt="" />
+    </figure>
+    <div class="space-y-4">
+      <h1 class="font-bold text-2xl text-foreground">
+        Hello! I'm Nikita aka <span class="text-primary">fly0utWest</span>
+      </h1>
+      <p class="text-foreground text-xl">
+        I'm a web developer and do frontend and DevOps most of the time, but I
+        also like to engage with operating systems, networking and everything
+        that would attract my attention in computer science
+      </p>
+    </div>
+  </div>
+  <h2 class="text-xl text-primary text-center m-6">Stack</h2>
+  <div>
+    <ul>
+    {tools?.map((tool) => (
+      <li class="text-foreground text-lg"> 
+        {tool.data.title}
+      </li>
+    ))}
+    </ul>
+  </div>
+</section>

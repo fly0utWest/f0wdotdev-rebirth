@@ -1,0 +1,26 @@
+---
+const currentPath = Astro.url.pathname
+---
+
+<header
+  id="header"
+  class="min-w-full border-b-2 h-28 flex flex-1 flex-col items-center justify-center light:border-b-black border-b-border bg-background shadow-2xl shadow-primary"
+>
+  <div
+    class="h-full p-6 w-full max-w-screen-lg flex flex-1 items-center justify-between"
+  >
+    <div class="flex flex-col gap-2">
+      <a href="/">
+        <h1 class="font-bold text-2xl text-primary">
+          <span class="md:hidden">f0W</span>
+          <span class="hidden md:inline">fly0utWest</span>
+          <span class="text-black dark:text-white"> | ~{currentPath} </span>
+        </h1>
+      </a>
+      <span
+        class="typed-[web_dev;linux_enthusiast;is_anybody_out_here?] typed-caret-width-2 typed-caret typed-caret-space-2 typed-caret-color-primary text-black font-semibold dark:text-white"
+      ></span>
+    </div>
+
+  </div>
+</header>
