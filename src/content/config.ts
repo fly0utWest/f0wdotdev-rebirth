@@ -1,17 +1,44 @@
 import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
 import { getAdminPB } from "../server/pb";
-import { ToolSchema } from "./schemas";
+import { ProjectsSchema, SocialsSchema, ToolSchema } from "./schemas";
+
+
+const adminPB = await getAdminPB();
+
+const projects = defineCollection({
+  loader: async () => {
+    const projectRecords = await adminPB
+      .collection("projects")
+      .getFullList({ expand: "tools" });
+
+    const expandedProjects = projectRecords.map((record) => {
+      const preview = adminPB.files.getURL(record, record.preview);
+      return {
+        ...record,
+        preview,
+      };
+    });
+
+    return expandedProjects;
+  },
+  schema: ProjectsSchema,
+});
 
 const tools = defineCollection({
   loader: async () => {
-    const adminPB = await getAdminPB();
     const tools = await adminPB.collection("tools").getFullList();
     return tools;
   },
   schema: ToolSchema,
 });
 
+const socials = defineCollection({
+  loader: async () => {
+    const socials = await adminPB.collection("socials").getFullList();
+    return socials;
+  },
+  schema: SocialsSchema,
+});
 // const projects = defineCollection({
 //   loader: async () => {
 //     const projects = await adminPB
@@ -21,5 +48,4 @@ const tools = defineCollection({
 //   },
 //   schema: z.array(ProjectSchema),
 // });
-
-export const collections = { tools };
+export const collections = { tools, socials, projects };

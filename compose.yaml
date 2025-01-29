@@ -1,0 +1,14 @@
+services:
+  astro-f0w:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4321:4321"
+    environment:
+      - PUBLIC_PB_URL=${PUBLIC_PB_URL}
+      - PB_URL=${PB_URL}
+      - PB_EMAIL=${PB_EMAIL}
+      - PB_PASSWORD=${PB_PASSWORD}
+      - PUBLIC_WEBRING_URL=${PUBLIC_WEBRING_URL}
+      - WEBRING_USER_ID=${WEBRING_USER_ID}

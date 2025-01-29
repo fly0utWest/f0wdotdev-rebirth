@@ -59,7 +59,9 @@
   }
 }
 
-
+a {
+  @apply transition-all
+}
 
   body {
     @apply bg-background text-foreground;

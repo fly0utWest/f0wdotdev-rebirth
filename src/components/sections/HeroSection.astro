@@ -1,25 +1,23 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-  const tools = await getCollection("tools");
-  if (!tools) return [];
-  console.log(tools);
-  return tools;
+const tools = await getCollection("tools");
 ---
 
-<section class="w-full bg-card rounded border-2 border-border p-6">
-  <div class="flex items-center gap-6">
+<section class="w-full bg-card rounded border-2 border-border hover:border-primary p-6 group transition-colors">
+  <div class="flex flex-col items-center lg:flex-row gap-6">
     <figure
-      class="w-32 h-32 bg-primary overflow-hidden rounded-full border-primary border-4 shrink-0"
+      class="w-32 h-32 bg-primary self-center overflow-hidden rounded-full border-border border-4 shrink-0 transition-colors group-hover:border-primary"
     >
-      <img class="w-full h-full object-fill" src="/cat.jpg" alt="" />
+      <Image width={120} height={120} src="/cat.jpg" alt="avatar pic :3" />
     </figure>
     <div class="space-y-4">
       <h1 class="font-bold text-2xl text-foreground">
         Hello! I'm Nikita aka <span class="text-primary">fly0utWest</span>
       </h1>
       <p class="text-foreground text-xl">
-        I'm a web developer and do frontend and DevOps most of the time, but I
+        I'm a web developer and do frontend-devOps-UI/UX most of the time, but I
         also like to engage with operating systems, networking and everything
         that would attract my attention in computer science
       </p>
@@ -27,12 +25,16 @@ import { getCollection } from "astro:content";
   </div>
   <h2 class="text-xl text-primary text-center m-6">Stack</h2>
   <div>
-    <ul>
-    {tools?.map((tool) => (
-      <li class="text-foreground text-lg"> 
-        {tool.data.title}
-      </li>
-    ))}
+    <ul class="flex justify-center gap-4 flex-wrap items-center">
+      {
+        tools?.map((tool) => {
+          return (
+            <li class="text-foreground text-lg">
+              <a set:html={tool.data.icon} href={tool.data.tool_url} />
+            </li>
+          );
+        })
+      }
     </ul>
   </div>
 </section>

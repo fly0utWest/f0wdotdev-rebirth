@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import SideNav from "../components/SideNav.astro";
 import "../styles/base.css";
 import "@fontsource/comic-mono";
+import WebringNav from "../components/WebringNav.astro";
 ---
 
 <!doctype html>
@@ -13,7 +14,13 @@ import "@fontsource/comic-mono";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>{Astro.currentLocale === "en" ? "fly0utWest's lair" : "Привет, я fly0utWest"}</title>
+    <title>
+      {
+        Astro.currentLocale === "en"
+          ? "fly0utWest's lair"
+          : "Привет, я fly0utWest"
+      }
+    </title>
   </head>
   <body
     class="bg-vallhalla bg-fixed bg-cover bg-no-repeat bg-center overscroll-none text-white"
@@ -27,8 +34,9 @@ import "@fontsource/comic-mono";
         <main class="p-6 flex flex-col gap-6 w-full">
           <slot />
         </main>
-        <!-- <Footer /> -->
       </div>
+      <Footer />
     </div>
+    <WebringNav server:defer/>
   </body>
 </html>

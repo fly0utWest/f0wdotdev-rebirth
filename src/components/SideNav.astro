@@ -1,17 +1,29 @@
 ---
 import ThemeSwitcher from "./ThemeSwitcher.astro";
-import LocaleSwitcher from "./LocaleSwitcher.astro";
+import { getCollection } from "astro:content";
+
+const socials = await getCollection("socials");
+
 ---
 
 <nav
-  class="sticky bg-popover left-0 top-0 flex justify-between max-h-max items-center border-b-border border-b-2 lg:flex-col lg:h-screen lg:w-max lg:static lg:border-l-2 lg:border-l-border lg:border-b-none"
+  class="sticky z-50 bg-popover left-0 top-0 max-h-max items-center border-b-border border-b-2 lg:flex-col lg:h-full lg:w-max lg:border-l-2 lg:border-l-border lg:border-b-none lg:hover:border-primary transition-colors lg:rounded-bl"
 >
-  <div class="px-6 py-4">
-    <div class="flex items-center">
+  <div class="flex justify-between px-6 py-4 lg:flex-col lg:gap-6">
       <ThemeSwitcher />
-    </div>
     <div>
-      <LocaleSwitcher />
+      <ul class="flex gap-4 lg:flex-col">
+        {socials.map((social) => (
+          <li>
+            <a
+              set:html={social.data.icon}
+              href={social.data.link}
+              class="text-foreground hover:text-primary"
+            >
+            
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
-  </div>
 </nav>
