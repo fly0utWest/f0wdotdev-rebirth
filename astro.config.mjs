@@ -40,7 +40,7 @@ export default defineConfig({
         context: "server",
         access: "public",
         optional: false,
-      })
+      }),
     },
   },
 
@@ -61,7 +61,6 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-
   adapter: node({
     mode: "standalone",
   }),
