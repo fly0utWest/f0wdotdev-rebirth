@@ -1,6 +1,7 @@
 ---
 import { PUBLIC_WEBRING_URL, WEBRING_USER_ID } from "astro:env/server";
 import { z } from "zod";
+import { useTranslations } from "../i18n/useTranslations";
 import { ZodError } from "zod";
 
 const RingItemSchema = z.object({
@@ -33,6 +34,9 @@ try {
     console.error("An unknown error occurred", error);
   }
 }
+
+const locale = Astro.currentLocale ?? "en";
+const t = useTranslations(locale);
 ---
 
 <nav
@@ -41,10 +45,7 @@ try {
   <div
     class="w-full h-full max-w-screen-lg flex items-center justify-between gap-4"
   >
-    <a
-      class="text-center hover:underline"
-      href={userData?.prev?.url || "#"}
-    >
+    <a class="text-center hover:underline" href={userData?.prev?.url || "#"}>
       <span class="text-nowrap">&lt;-</span>
       <span class="hidden md:inline">
         {userData?.prev.name ?? "error :("}
@@ -52,13 +53,10 @@ try {
     </a>
 
     <a class="text-center text-primary" href={PUBLIC_WEBRING_URL || "#"}>
-      [ru tg webringo]
+      {t("webringNav")["title"]}
     </a>
 
-    <a
-      class="text-center hover:underline"
-      href={userData?.next?.url || "#"}
-    >
+    <a class="text-center hover:underline" href={userData?.next?.url || "#"}>
       <span class="hidden md:inline text-nowrap">
         {userData?.next.name ?? "error :("}
       </span>{" "}

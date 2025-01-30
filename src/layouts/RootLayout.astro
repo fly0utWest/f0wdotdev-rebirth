@@ -5,6 +5,7 @@ import SideNav from "../components/SideNav.astro";
 import "../styles/base.css";
 import "@fontsource-variable/jetbrains-mono";
 import WebringNav from "../components/WebringNav.astro";
+import WebringNavFallback from "../components/WebringNavFallback.astro";
 ---
 
 <!doctype html>
@@ -37,6 +38,8 @@ import WebringNav from "../components/WebringNav.astro";
       </div>
       <Footer />
     </div>
-    <WebringNav server:defer />
+    <WebringNav server:defer>
+    <WebringNavFallback slot="fallback" />
+    </WebringNav>
   </body>
 </html>

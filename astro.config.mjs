@@ -41,7 +41,7 @@ export default defineConfig({
         optional: false,
       }),
     },
-    validateSecrets: true
+    validateSecrets: true,
   },
 
   prefetch: {
@@ -51,6 +51,10 @@ export default defineConfig({
 
   integrations: [tailwind()],
 
+  redirects: {
+    "/ssr-workaround": "/",
+  },
+
   i18n: {
     fallback: {
       ru: "en",
@@ -58,7 +62,7 @@ export default defineConfig({
     locales: ["en", "ru"],
     defaultLocale: "en",
     routing: {
-      prefixDefaultLocale: false,
+      fallbackType: "rewrite",
     },
   },
   adapter: node({

@@ -1,0 +1,18 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n"
+import { languages } from "../i18n/ui"
+
+const currentPath = Astro.url.pathname;
+console.log(currentPath)
+
+---
+
+<ul class="flex gap-2 lg:flex-col">
+  {
+    Object.entries(languages).map(([lang]) => (
+      <li class="text-foreground w-full h-full bg-background border-foreground border-2 hover:bg-foreground text-sm md:text-base transition-colors hover:text-background">
+        <a class="w-full h-full p-4" href={`/${lang}/`}>{lang}</a>
+      </li>
+    ))
+  }
+</ul>
