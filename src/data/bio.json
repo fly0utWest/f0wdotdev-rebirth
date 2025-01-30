@@ -1,0 +1,10 @@
+{
+  "en": {
+    "heading": "Hello! I'm Nikita aka <span class=\"text-primary\">fly0utWest</span>",
+    "body": "I'm a web developer and do frontend-devOps-UI/UX most of the time, but I also like to engage with operating systems, networking, and everything that would attract my attention in computer science"
+  },
+  "ru": {
+    "heading": "Привет! Я Никита | <span class=\"text-primary\">fly0utWest</span>",
+    "body": "Я веб-разработчик и большую часть времени занимаюсь фронтендом, DevOps и UI/UX, но также люблю работать с операционными системами, сетями и вообще любыми технологиями, которые мне могут понравиться в любой момент :)"
+  }
+}

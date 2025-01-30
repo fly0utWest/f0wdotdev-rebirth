@@ -1,7 +1,11 @@
 import { defineCollection, z } from "astro:content";
 import { getAdminPB } from "../server/pb";
-import { ProjectsSchema, SocialsSchema, ToolSchema } from "./schemas";
-
+import {
+  ProjectsSchema,
+  SocialsSchema,
+  ToolSchema,
+} from "./schemas";
+import { file } from "astro/loaders";
 
 const adminPB = await getAdminPB();
 
@@ -39,13 +43,4 @@ const socials = defineCollection({
   },
   schema: SocialsSchema,
 });
-// const projects = defineCollection({
-//   loader: async () => {
-//     const projects = await adminPB
-//       .collection("projects")
-//       .getFullList({ expand: "tools" });
-//     return projects;
-//   },
-//   schema: z.array(ProjectSchema),
-// });
 export const collections = { tools, socials, projects };

@@ -2,13 +2,16 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { useTranslations } from "../../i18n/useTranslations";
+import bio from "../../data/bio.json";
 
 const tools = await getCollection("tools");
 const locale = Astro.currentLocale ?? "en";
 const t = useTranslations(locale);
 ---
 
-<section class="w-full bg-card rounded border-2 border-border hover:border-primary p-6 group transition-colors">
+<section
+  class="w-full bg-card rounded border-2 border-border hover:border-primary p-6 group transition-colors"
+>
   <div class="flex flex-col items-center lg:flex-row gap-6">
     <figure
       class="w-32 h-32 bg-primary self-center overflow-hidden rounded-full border-border border-4 shrink-0 transition-colors group-hover:border-primary"
@@ -16,17 +19,18 @@ const t = useTranslations(locale);
       <Image width={120} height={120} src="/cat.jpg" alt="avatar pic :3" />
     </figure>
     <div class="space-y-4">
-      <h1 class="font-bold text-2xl text-foreground">
-        Hello! I'm Nikita aka <span class="text-primary">fly0utWest</span>
-      </h1>
+      <h1
+        class="font-bold text-2xl text-foreground"
+        set:html={locale === "en" ? bio.en.heading : bio.ru.heading}
+      />
       <p class="text-foreground text-xl">
-        I'm a web developer and do frontend-devOps-UI/UX most of the time, but I
-        also like to engage with operating systems, networking and everything
-        that would attract my attention in computer science
+        {locale === "en" ? bio.en.body : bio.ru.body}
       </p>
     </div>
   </div>
-  <h2 class="text-xl text-primary text-center m-6">{t("home.hero")["stack"]}</h2>
+  <h2 class="text-xl text-primary text-center m-6">
+    {t("home.hero")["stack"]}
+  </h2>
   <div>
     <ul class="flex justify-center gap-4 flex-wrap items-center">
       {

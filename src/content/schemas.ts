@@ -1,4 +1,6 @@
-import { reference, z } from "astro:content";
+import { z } from "astro:content";
+
+
 
 export const ToolSchema = z.object({
   title: z.string(),
