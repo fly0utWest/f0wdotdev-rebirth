@@ -11,7 +11,7 @@ const currentLocale = Astro.currentLocale;
     Object.entries(languages).map(([lang]) => (
       <li
         class:list={
-           "flex text-foreground font-semibold bg-background border-foreground border-2 hover:bg-foreground text-sm md:text-base transition-colors hover:text-background" +
+           "flex rounded text-foreground font-semibold bg-background border-foreground border-2 hover:bg-foreground text-sm md:text-base transition-colors hover:text-background" +
           (currentLocale === lang ? " bg-primary text-background" : "")
         }
       >

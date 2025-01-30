@@ -2,6 +2,7 @@
 import LanguagePicker from "./LanguagePicker.astro";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
 import { getCollection } from "astro:content";
+import CVDownload from "./CVDownload.astro";
 
 const socials = await getCollection("socials");
 ---
@@ -9,7 +10,7 @@ const socials = await getCollection("socials");
 <nav
   class="sticky z-50 bg-popover left-0 top-0 max-h-max items-center border-b-border border-b-2 lg:flex-col lg:h-full lg:w-max lg:border-l-2 lg:border-l-border lg:border-b-none lg:hover:border-primary transition-colors lg:rounded-bl"
 >
-  <div class="flex justify-between px-6 py-4 lg:flex-col lg:gap-6 lg:items-center">
+  <div class="flex justify-between gap-4 px-6 py-4 lg:flex-col lg:gap-6 lg:items-center">
     <ThemeSwitcher />
     <div class="flex items-center gap-4 lg:flex-col">
       <LanguagePicker />
@@ -27,6 +28,8 @@ const socials = await getCollection("socials");
           ))
         }
       </ul>
+      <span class="h-full w-[2px] lg:w-full lg:h-[2px] bg-border"></span>
+      <CVDownload />
     </div>
   </div>
 </nav>

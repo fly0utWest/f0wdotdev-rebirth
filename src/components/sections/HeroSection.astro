@@ -28,16 +28,18 @@ const t = useTranslations(locale);
       </p>
     </div>
   </div>
-  <h2 class="text-xl text-primary text-center m-6">
+  <h2 class="text-xl text-primary lg:text-center mt-6 mb-2">
     {t("home.hero")["stack"]}
   </h2>
   <div>
-    <ul class="flex justify-center gap-4 flex-wrap items-center">
+    <ul class="flex lg:justify-center gap-1 md:gap-2 lg:gap-4 flex-wrap items-center">
       {
         tools?.map((tool) => {
           return (
             <li class="text-foreground text-lg">
-              <a set:html={tool.data.icon} href={tool.data.tool_url} />
+              <a set:html={tool.data.icon} href={tool.data.tool_url} class="flex flex-row-reverse justify-center items-center gap-2 border-border p-2 rounded hover:border-primary border-2 transition-colors">
+                <span>{tool.data.title}</span>
+              </a>
             </li>
           );
         })
