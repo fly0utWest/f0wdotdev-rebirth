@@ -5,7 +5,7 @@ import HeroSection from "../../components/sections/HeroSection.astro";
 import ProjectsSection from "../../components/sections/ProjectsSection.astro";
 
 export async function getStaticPaths() {
-  return ["en", "ru"].map((lang) => ({ params: { lang } }));
+  return [undefined, "ru"].map((lang) => ({ params: { lang } }));
 };
 ---
 
