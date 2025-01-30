@@ -51,10 +51,6 @@ export default defineConfig({
 
   integrations: [tailwind()],
 
-  redirects: {
-    "/ssr-workaround": "/",
-  },
-
   i18n: {
     fallback: {
       ru: "en",
@@ -62,9 +58,12 @@ export default defineConfig({
     locales: ["en", "ru"],
     defaultLocale: "en",
     routing: {
+      prefixDefaultLocale: true,
       fallbackType: "rewrite",
+      redirectToDefaultLocale: true,
     },
   },
+  
   adapter: node({
     mode: "standalone",
   }),
