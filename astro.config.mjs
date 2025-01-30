@@ -2,7 +2,6 @@
 import { defineConfig } from "astro/config";
 import { envField } from "astro/config";
 
-import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 
 import node from "@astrojs/node";
@@ -42,6 +41,7 @@ export default defineConfig({
         optional: false,
       }),
     },
+    validateSecrets: true
   },
 
   prefetch: {
@@ -49,7 +49,7 @@ export default defineConfig({
     defaultStrategy: "viewport",
   },
 
-  integrations: [svelte(), tailwind()],
+  integrations: [tailwind()],
 
   i18n: {
     fallback: {

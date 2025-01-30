@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Comic Mono", ...defaultTheme.fontFamily.sans],
+        sans: ["Jetbrains Mono Variable", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         background: "hsl(var(--background))",

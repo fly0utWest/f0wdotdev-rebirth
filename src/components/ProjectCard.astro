@@ -37,7 +37,7 @@ const locale = Astro.currentLocale;
         {project.title}
       </h3>
       <p
-        class="text-foreground"
+        class="text-foreground text-balance"
         set:html={locale === "en"
           ? project.description.en
           : project.description.ru}
@@ -54,7 +54,7 @@ const locale = Astro.currentLocale;
           }
         </ul>
       </div>
-      <p class="text-sm text-gray-400 mt-4">
+      <p class="text-sm text-muted-foreground mt-4">
         Created on <span>{formatDate(project.started)}</span>
       </p>
     </div>
