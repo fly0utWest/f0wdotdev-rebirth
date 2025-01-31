@@ -32,14 +32,38 @@ const t = useTranslations(locale);
     {t("home.hero")["stack"]}
   </h2>
   <div>
-    <ul class="flex lg:justify-center gap-1 md:gap-2 lg:gap-4 flex-wrap items-center">
+    <ul
+      class="flex lg:justify-center gap-1 md:gap-2 lg:gap-4 flex-wrap items-center"
+    >
       {
-        tools?.map((tool) => {
+        tools.map((tool) => {
           return (
             <li class="text-foreground text-lg">
-              <a set:html={tool.data.icon} href={tool.data.tool_url} class="flex flex-row-reverse justify-center items-center gap-2 border-border p-2 rounded hover:border-primary border-2 transition-colors">
+              <a
+                set:html={tool.data.icon}
+                href={tool.data.tool_url}
+                class="flex flex-row-reverse justify-center items-center gap-2 border-border p-2 rounded hover:border-primary border-2 transition-colors"
+              >
                 <span>{tool.data.title}</span>
               </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+  <h2 class="text-xl text-primary lg:text-center mt-6 mb-2">
+    {t("home.hero")["langs"]}
+  </h2>
+  <div>
+    <ul
+      class="flex lg:justify-center gap-1 md:gap-2 lg:gap-4 flex-wrap items-center"
+    >
+      {
+        bio[locale as "en" | "ru"].langs?.map((lang) => {
+          return (
+            <li class="text-foreground font-bold p-2 bg-accent rounded text-lg">
+              <span class="text-primary">{lang.lang}</span> ({lang.level})
             </li>
           );
         })

@@ -9,6 +9,7 @@ export const ui = {
   en: {
     "home.hero": {
       stack: "Stack",
+      langs: "Languages",
     },
     "home.projects": {
       title: "Projects",
@@ -31,6 +32,7 @@ export const ui = {
   ru: {
     "home.hero": {
       stack: "Инструменты",
+      langs: "Языки",
     },
     "home.projects": {
       title: "Проекты",
