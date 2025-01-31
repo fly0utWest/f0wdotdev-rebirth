@@ -1,4 +1,4 @@
-export const defineProjectStatus = (status: "beta" | "dev" | "prod" | "finished" ) => {
+export const defineProjectStatus = (status: "beta" | "dev" | "prod" | "fin/archive" ) => {
     switch (status) {
         case "beta":
             return "bg-chart-1";
@@ -6,7 +6,7 @@ export const defineProjectStatus = (status: "beta" | "dev" | "prod" | "finished"
             return "bg-chart-2";
         case "prod":
             return "bg-chart-3";
-        case "finished":
+        case "fin/archive":
             return "bg-chart-4";
         default:
             return "bg-card";

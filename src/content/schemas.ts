@@ -17,7 +17,7 @@ export const ProjectsSchema = z.object({
     tools: z.array(ToolSchema),
   }),
   description: z.object({ en: z.string(), ru: z.string() }),
-  status: z.enum(["beta", "prod", "dev", "finished"]),
+  status: z.enum(["beta", "prod", "dev", "fin/archive"]),
   link: z.string().url(),
   started: z.string(),
   created: z.string(),
