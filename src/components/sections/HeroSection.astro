@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { useTranslations } from "../../i18n/useTranslations";
 import bio from "../../data/bio.json";
+import { languages } from "../../i18n/ui";
 
 const tools = await getCollection("tools");
 const locale = Astro.currentLocale ?? "en";
@@ -60,7 +61,7 @@ const t = useTranslations(locale);
       class="flex lg:justify-center gap-1 md:gap-2 lg:gap-4 flex-wrap items-center"
     >
       {
-        bio[locale as "en" | "ru"].langs?.map((lang) => {
+        bio[locale as keyof typeof languages].langs?.map((lang) => {
           return (
             <li class="text-foreground font-bold p-2 bg-accent rounded text-lg">
               <span class="text-primary">{lang.lang}</span> ({lang.level})

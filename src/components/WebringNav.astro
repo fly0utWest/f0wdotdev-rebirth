@@ -40,7 +40,7 @@ const t = useTranslations(locale);
 ---
 
 <nav
-  class="text-foreground bg-background border-primary w-full h-16 border-t-2 bottom-0 px-6 fixed flex justify-center"
+  class="z-50 text-foreground bg-background border-primary w-full h-16 border-t-2 bottom-0 px-6 fixed flex justify-center"
 >
   <div
     class="w-full h-full max-w-screen-lg flex items-center justify-between gap-4"
@@ -59,7 +59,7 @@ const t = useTranslations(locale);
     <a class="text-center hover:underline" href={userData?.next?.url || "#"}>
       <span class="hidden md:inline text-nowrap">
         {userData?.next.name ?? "error :("}
-      </span>{" "}
+      </span>
       <span class="text-nowrap">-&gt;</span>
     </a>
   </div>

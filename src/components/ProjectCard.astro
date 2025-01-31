@@ -3,14 +3,15 @@ import type { z } from "astro:content";
 import { ProjectsSchema } from "../content/schemas";
 import Image from "astro/components/Image.astro";
 import formatDate from "../lib/formatDate";
+import { defineProjectStatus } from "../lib/defineProjectStatus";
 
 interface Props {
   project: z.infer<typeof ProjectsSchema>;
   ui: {
-    stack: string
+    stack: string;
     createdAt: string;
-  clickToShow: string;
-  }
+    clickToShow: string;
+  };
 }
 
 const { project, ui }: Props = Astro.props;
@@ -22,6 +23,12 @@ const locale = Astro.currentLocale;
   href={project.link}
   class="flex flex-1 max-w-[375px] flex-col min-h-26 w-full h-full transition-all duration-150 border-2 border-border relative hover:border-primary hover:shadow-secondary hover:shadow-md group hover:scale-[103%] rounded overflow-hidden"
 >
+  <div
+    class:list={"absolute left-0 top-0 z-10 p-2 rounded-br font-semibold uppercase" +
+      ` ${defineProjectStatus(project.status)}`}
+  >
+    {project.status}
+  </div>
   <div class="relative">
     <div
       class="bg-black bg-opacity-50 flex justify-center items-center absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity"
@@ -60,7 +67,8 @@ const locale = Astro.currentLocale;
         </ul>
       </div>
       <p class="text-sm text-muted-foreground mt-4">
-        {ui.createdAt} <span>{formatDate(project.started)}</span>
+        {ui.createdAt}
+        <span>{formatDate(project.started)}</span>
       </p>
     </div>
   </div>
