@@ -11,11 +11,14 @@ const currentLocale = Astro.currentLocale;
     Object.entries(languages).map(([lang]) => (
       <li
         class:list={
-           "flex rounded text-foreground font-semibold bg-background border-foreground border-2 hover:bg-foreground text-sm md:text-base transition-colors hover:text-background" +
-          (currentLocale === lang ? " bg-primary text-background" : "")
+          "flex rounded font-semibold border-2 text-sm md:text-base transition-colors" +
+          (currentLocale === lang
+            ? " bg-primary hover:bg-foreground border-foreground dark:text-foreground dark:hover:text-background text-background"
+            : " hover:bg-foreground text-foreground dark:text-foreground dark:hover:text-background hover:text-background bg-background border-foreground")
         }
       >
-        <a class="flex-1 text-center p-3"
+        <a
+          class="flex-1 text-center p-3"
           href={getRelativeLocaleUrl(
             lang,
             currentPath.replace(`/${currentLocale}`, "")
