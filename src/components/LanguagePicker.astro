@@ -13,7 +13,7 @@ const currentLocale = Astro.currentLocale;
         class:list={
           "flex rounded font-semibold border-2 text-sm md:text-base transition-colors" +
           (currentLocale === lang
-            ? " bg-primary hover:bg-foreground border-foreground dark:text-foreground dark:hover:text-background text-background"
+            ? " bg-primary hover:bg-foreground border-secondary dark:text-foreground dark:hover:text-background text-background"
             : " hover:bg-foreground text-foreground dark:text-foreground dark:hover:text-background hover:text-background bg-background border-foreground")
         }
       >

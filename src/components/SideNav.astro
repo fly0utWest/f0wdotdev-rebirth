@@ -15,7 +15,7 @@ const socials = await getCollection("socials");
   >
     <ThemeSwitcher />
     <div class="flex items-center gap-4 lg:flex-col">
-      <span class="h-full w-[2px] lg:w-full lg:h-[2px] bg-border"></span>
+      <span class="h-1/2 w-[2px] lg:w-full lg:h-[2px] bg-border"></span>
       <ul class="flex gap-4 lg:flex-col">
         {
           socials.map((social) => (
@@ -29,9 +29,9 @@ const socials = await getCollection("socials");
           ))
         }
       </ul>
-      <span class="h-full w-[2px] lg:w-full lg:h-[2px] bg-border"></span>
+      <span class="h-1/2 w-[2px] lg:w-full lg:h-[2px] bg-border"></span>
       <LanguagePicker />
-      <span class="h-full w-[2px] lg:w-full lg:h-[2px] bg-border"></span>
+      <span class="h-1/2 w-[2px] lg:w-full lg:h-[2px] bg-border"></span>
       <CVDownload />
     </div>
   </div>
