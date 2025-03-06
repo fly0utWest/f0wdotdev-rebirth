@@ -1,7 +1,5 @@
 import { z } from "astro:content";
 
-
-
 export const ToolSchema = z.object({
   title: z.string(),
   icon: z.string(),

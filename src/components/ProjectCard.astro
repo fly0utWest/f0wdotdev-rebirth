@@ -1,9 +1,9 @@
 ---
 import type { z } from "astro:content";
 import { ProjectsSchema } from "../content/schemas";
-import Image from "astro/components/Image.astro";
 import formatDate from "../lib/formatDate";
 import { defineProjectStatus } from "../lib/defineProjectStatus";
+import { Image } from "astro:assets";
 
 interface Props {
   project: z.infer<typeof ProjectsSchema>;
