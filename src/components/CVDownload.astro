@@ -1,9 +1,11 @@
 ---
-
+const currentLocale = Astro.currentLocale ?? "en";
 ---
 
 <a
-  href="https://storage.rxresu.me/cm6nxau7p00h41492x0qwebf7/resumes/f0w.pdf"
+  href={currentLocale === "en"
+    ? "https://rxresu.me/fly0utwest/f0w"
+    : "https://rxresu.me/fly0utwest/f0w-ru"}
   class="text-primary text-sm items-center justify-center flex-col font-bold flex gap-1"
 >
   <svg
