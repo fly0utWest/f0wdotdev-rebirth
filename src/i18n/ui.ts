@@ -17,6 +17,7 @@ export const ui = {
         clickToShow: "Click to show",
         createdAt: "Created",
         stack: "Stack",
+        links: "Links"
       },
     },
     footer: {
@@ -40,6 +41,7 @@ export const ui = {
         clickToShow: "Нажми, чтобы перейти к проекту",
         createdAt: "Создан",
         stack: "Инструменты",
+        links: "Ссылки"
       },
     },
     footer: {
