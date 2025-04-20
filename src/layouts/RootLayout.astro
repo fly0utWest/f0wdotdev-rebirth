@@ -9,12 +9,18 @@ import WebringNavFallback from "../components/WebringNavFallback.astro";
 ---
 
 <!doctype html>
-<html lang={Astro.currentLocale} class="scroll-smooth overscroll-none antialiased dark">
+<html
+  lang={Astro.currentLocale}
+  class="scroll-smooth overscroll-none antialiased dark"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:image" content="/opengraph-image.png" />
+    <meta property="twitter:image" content="/opengraph-image.png" />
+
     <title>
       {
         Astro.currentLocale === "en"
@@ -39,7 +45,7 @@ import WebringNavFallback from "../components/WebringNavFallback.astro";
       <Footer />
     </div>
     <WebringNav server:defer>
-    <WebringNavFallback slot="fallback" />
+      <WebringNavFallback slot="fallback" />
     </WebringNav>
   </body>
 </html>
