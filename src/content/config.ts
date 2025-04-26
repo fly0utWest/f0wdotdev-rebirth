@@ -5,7 +5,6 @@ import {
   SocialsSchema,
   ToolSchema,
 } from "./schemas";
-import { file } from "astro/loaders";
 
 const adminPB = await getAdminPB();
 
