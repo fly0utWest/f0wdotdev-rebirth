@@ -1,10 +1,17 @@
 FROM node:lts AS runtime
+
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
 WORKDIR /app
+
+COPY package.json pnpm-lock.yaml* ./
+RUN pnpm install
 
 COPY . .
 
-RUN npm install
-RUN npm run build
+RUN pnpm build
 
-EXPOSE 4321
-CMD node ./dist/server/entry.mjs
+ENV PORT=4321
+EXPOSE ${PORT}
+
+CMD ["node", "./dist/server/entry.mjs"]

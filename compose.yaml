@@ -4,8 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "4321:4321"
+      - "${PORT:-4321}:${PORT:-4321}"
     environment:
+      - PORT=${PORT:-4321}
       - PUBLIC_PB_URL=${PUBLIC_PB_URL}
       - PB_URL=${PB_URL}
       - PB_EMAIL=${PB_EMAIL}
