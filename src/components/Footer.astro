@@ -8,6 +8,15 @@ const t = useTranslations(locale!);
 <footer
   class="flex flex-col justify-center gap-2 items-center mb-16 w-full min-h-24 border-border border-t-2 bg-background text-foreground"
 >
+  <p class="text-xs text-muted-foreground">
+    {t("footer")["repo"]}
+    <a
+      class="underline"
+      href={"https://github.com/fly0utWest/f0wdotdev-rebirth"}
+    >
+      *{t("misc")["click"]}*
+    </a>
+  </p>
   <p class="text-foreground text-center">
     {t("footer")["poweredBy"]}
     <a class="underline" href="https://astro.build"> Astro </a>

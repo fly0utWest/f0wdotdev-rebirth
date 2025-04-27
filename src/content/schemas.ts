@@ -6,6 +6,7 @@ export const ToolSchema = z.object({
   tool_url: z.string().url(),
   created: z.string(),
   updated: z.string(),
+  hidden: z.boolean(),
 });
 
 export const ProjectsSchema = z.object({

@@ -19,6 +19,12 @@ import WebringNavFallback from "../components/WebringNavFallback.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <meta property="og:image" content="/opengraph-image.png" />
+    <meta
+      name="description"
+      content={Astro.currentLocale === "en"
+        ? "a fullstack dev's website ¯_(ツ)_/¯"
+        : "Личный сайт-визитка ¯_(ツ)_/¯"}
+    />
     <meta property="twitter:image" content="/opengraph-image.png" />
 
     <title>

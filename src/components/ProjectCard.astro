@@ -21,7 +21,7 @@ const locale = Astro.currentLocale;
 ---
 
 <article
-  class="flex flex-1 max-w-[375px] flex-col min-h-26 w-full h-full transition-all duration-150 border-2 border-border relative hover:border-primary hover:shadow-secondary hover:shadow-md group hover:scale-[103%] rounded overflow-hidden"
+  class="flex flex-1 flex-col min-h-26 w-full h-full transition-all duration-150 border-2 border-border relative hover:border-primary hover:shadow-secondary hover:shadow-md group hover:scale-[103%] rounded overflow-hidden"
 >
   <div
     class:list={"absolute left-0 top-0 z-10 p-2 rounded-br font-semibold uppercase" +
@@ -36,6 +36,7 @@ const locale = Astro.currentLocale;
       width="320"
       height="160"
       alt="Project Preview"
+      loading="rapid"
     />
   </div>
   <div class="p-4 h-full flex gap-4 flex-col justify-between">
@@ -67,7 +68,7 @@ const locale = Astro.currentLocale;
         {
           project.link ? (
             <a
-              class="flex items-center w-min gap-2 hover:invert hover:bg-background rounded transition-colors border-2 p-2"
+              class="flex items-center w-min gap-2 hover:invert hover:bg-background rounded text-black dark:text-white transition-colors border-2 p-2"
               href={project.link}
             >
               <svg
