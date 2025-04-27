@@ -1,8 +1,7 @@
 ---
 import { PUBLIC_WEBRING_URL, WEBRING_USER_ID } from "astro:env/server";
-import { z } from "astro:content";
+import { z } from "astro/zod";
 import { useTranslations } from "../i18n/useTranslations";
-import { ZodError } from "astro:schema";
 
 const RingItemSchema = z.object({
   id: z.number(),
@@ -28,9 +27,7 @@ const data = await response.json();
 try {
   userData = UserRingDataSchema.parse(data);
 } catch (error: unknown) {
-  if (error instanceof ZodError) {
-    console.error("Validation failed", error.errors);
-  } else {
+  if (error instanceof Error) {
     console.error("An unknown error occurred", error);
   }
 }
