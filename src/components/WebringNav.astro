@@ -1,8 +1,8 @@
 ---
 import { PUBLIC_WEBRING_URL, WEBRING_USER_ID } from "astro:env/server";
-import { z } from "zod";
+import { z } from "astro:content";
 import { useTranslations } from "../i18n/useTranslations";
-import { ZodError } from "zod";
+import { ZodError } from "astro:schema";
 
 const RingItemSchema = z.object({
   id: z.number(),
