@@ -26,6 +26,7 @@ services:
     ports:
       - "${PB_PORT:-8090}:${PB_PORT:-8090}"
     environment:
+      - PB_PORT=${PB_PORT:-8090}
       - PB_PASSWORD=${PB_PASSWORD}
       - PB_EMAIL=${PB_EMAIL}
     restart: unless-stopped
