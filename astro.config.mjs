@@ -2,9 +2,9 @@
 import { defineConfig } from "astro/config";
 import { envField } from "astro/config";
 
-import tailwind from "@astrojs/tailwind";
-
 import node from "@astrojs/node";
+
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -49,8 +49,6 @@ export default defineConfig({
     defaultStrategy: "viewport",
   },
 
-  integrations: [tailwind()],
-
   i18n: {
     fallback: {
       ru: "en",
@@ -63,8 +61,12 @@ export default defineConfig({
       redirectToDefaultLocale: true,
     },
   },
-  
+
   adapter: node({
     mode: "standalone",
   }),
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
