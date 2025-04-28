@@ -17,14 +17,16 @@ const UserRingDataSchema = z.object({
 });
 
 let userData: z.infer<typeof UserRingDataSchema> | null = null;
-
-const response = await fetch(`${PUBLIC_WEBRING_URL}/${WEBRING_USER_ID}/data`, {
-  method: "GET",
-});
-
-const data = await response.json();
-
 try {
+  const response = await fetch(
+    `${PUBLIC_WEBRING_URL}/${WEBRING_USER_ID}/data`,
+    {
+      method: "GET",
+    }
+  );
+
+  const data = await response.json();
+
   userData = UserRingDataSchema.parse(data);
 } catch (error: unknown) {
   if (error instanceof Error) {
