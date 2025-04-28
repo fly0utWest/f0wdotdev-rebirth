@@ -1,9 +1,9 @@
-import { PB_URL, PB_EMAIL, PB_PASSWORD, getSecret } from "astro:env/server";
+import { PB_URL, PB_EMAIL, getSecret } from "astro:env/server";
 import PocketBase from "pocketbase";
 
 let adminPB: PocketBase | null = null;
 
-const passwoordPB = getSecret("PB_PASSWORD"); 
+const passwoordPB = getSecret("PB_PASSWORD");
 
 export const getAdminPB = async () => {
   if (adminPB) return adminPB;

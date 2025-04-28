@@ -1,0 +1,34 @@
+services:
+  astro-f0w:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT:-4321}:${PORT:-4321}"
+    environment:
+      - PORT=${PORT:-4321}
+      - PUBLIC_PB_URL=${PUBLIC_PB_URL}
+      - PB_URL=${PB_URL}
+      - PB_EMAIL=${PB_EMAIL}
+      - PB_PASSWORD=${PB_PASSWORD}
+      - PUBLIC_WEBRING_URL=${PUBLIC_WEBRING_URL}
+      - WEBRING_USER_ID=${WEBRING_USER_ID}
+    depends_on:
+      - pocketbase
+
+  pocketbase:
+    build:
+      context: .
+      dockerfile: Dockerfile.pb
+    volumes:
+      - ./migrations:/app/pb_migrations
+      - pb_data:/app/pb_data
+    ports:
+      - "${PB_PORT:-8090}:${PB_PORT:-8090}"
+    environment:
+      - PB_PASSWORD=${PB_PASSWORD}
+      - PB_EMAIL=${PB_EMAIL}
+    restart: unless-stopped
+
+volumes:
+  pb_data:
