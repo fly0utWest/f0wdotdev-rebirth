@@ -10,7 +10,7 @@ to create .env file with default values, run:
 cp .env.example .env
 ````
 
-## pocketbase
+### pocketbase
 
 to start pocketbase server, run:
 
