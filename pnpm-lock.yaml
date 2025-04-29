@@ -34,8 +34,8 @@ importers:
         version: 5.8.3
     devDependencies:
       tailwind-plugin-typed:
-        specifier: ^0.8.0
-        version: 0.8.0(tailwindcss@4.1.4)
+        specifier: ^1.1.2
+        version: 1.1.2(tailwindcss@4.1.4)
 
 packages:
 
@@ -1488,10 +1488,10 @@ packages:
     resolution: {integrity: sha512-iq6eVVI64nQQTRYq2KtEg2d2uU7LElhTJwsH4YzIHZshxlgZms/wIc4VoDQTlG/IvVIrBKG06CrZnp0qv7hkcQ==}
     engines: {node: '>=12'}
 
-  tailwind-plugin-typed@0.8.0:
-    resolution: {integrity: sha512-pgUpRhHuMr4jCaLXmVA6ugwZIUTNYhKGYawjgNwgiyNd3qLSRpGInXahrzPQyzrft9T0PBeII9vwI6LdjiQ3OA==}
+  tailwind-plugin-typed@1.1.2:
+    resolution: {integrity: sha512-+/SIosEhjFWS4E1kn2rmtAWxFM3pMpNXfgcpLwZuWg05icTkLjcdcKA41eET2QN3Bm++B0/5rg1ymSjwoBkJXw==}
     peerDependencies:
-      tailwindcss: ^3.0.0
+      tailwindcss: ^3.0.0 || ^4.0.0
 
   tailwindcss@4.1.4:
     resolution: {integrity: sha512-1ZIUqtPITFbv/DxRmDr5/agPqJwF69d24m9qmM1939TJehgY539CtzeZRjbLt5G6fSy/7YqqYsfvoTEw9xUI2A==}
@@ -3459,7 +3459,7 @@ snapshots:
     dependencies:
       ansi-regex: 6.1.0
 
-  tailwind-plugin-typed@0.8.0(tailwindcss@4.1.4):
+  tailwind-plugin-typed@1.1.2(tailwindcss@4.1.4):
     dependencies:
       tailwindcss: 4.1.4
 
