@@ -1,5 +1,5 @@
 ---
-import Moon from "../assets/icons/Moon.astro";
+import Moon from "../assets/icons/Moon";
 ---
 
 <button class="max-w-min hover:cursor-pointer" id="themeSwitcher">

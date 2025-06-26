@@ -1,6 +1,6 @@
 ---
 import LanguagePicker from "./LanguagePicker.astro";
-import ThemeSwitcher from "./ThemeSwitcher.astro";
+import ThemeSwitcher from "./ThemeSwitcher";
 import { getCollection } from "astro:content";
 import CVDownload from "./CVDownload.astro";
 
@@ -18,7 +18,7 @@ const socials = await getCollection("socials");
       <span class="h-1/2 w-[2px] lg:w-full lg:h-[2px] bg-border lg:inline hidden"></span>
       <ul class="flex gap-4 lg:flex-col">
         {
-          socials.map((social) => (
+          socials && socials.length > 0 ? socials.map((social) => (
             <li>
               <a
                 set:html={social.data.icon}
@@ -27,7 +27,11 @@ const socials = await getCollection("socials");
               aria-label={social.data.title}
               />
             </li>
-          ))
+          )) : (
+            <li>
+              <p class="text-destructive text-lg">:c</p>
+            </li>
+          )
         }
       </ul>
       <span class="h-1/2 w-[2px] lg:w-full lg:h-[2px] bg-border"></span>

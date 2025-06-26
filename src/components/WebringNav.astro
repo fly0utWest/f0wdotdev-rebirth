@@ -47,7 +47,7 @@ const t = useTranslations(locale);
     <a class="text-center hover:underline" href={userData?.prev?.url || "#"}>
       <span class="text-nowrap">&lt;-</span>
       <span class="hidden md:inline">
-        {userData?.prev.name ?? "error :("}
+        {userData?.prev.name ?? t("misc")["error"]}
       </span>
     </a>
 
@@ -57,7 +57,7 @@ const t = useTranslations(locale);
 
     <a class="text-center hover:underline" href={userData?.next?.url || "#"}>
       <span class="hidden md:inline text-nowrap">
-        {userData?.next.name ?? "error :("}
+        {userData?.next.name ?? t("misc")["error"]}
       </span>
       <span class="text-nowrap">-&gt;</span>
     </a>

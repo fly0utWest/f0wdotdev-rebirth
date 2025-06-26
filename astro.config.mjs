@@ -5,6 +5,8 @@ import node from "@astrojs/node";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import solidJs from "@astrojs/solid-js";
+
 // https://astro.build/config
 export default defineConfig({
   env: {
@@ -68,4 +70,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+
+  integrations: [solidJs()],
 });

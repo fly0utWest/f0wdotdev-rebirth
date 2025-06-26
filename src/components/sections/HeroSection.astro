@@ -29,21 +29,25 @@ const t = useTranslations(locale);
       class="flex lg:justify-center gap-1 md:gap-2 lg:gap-4 flex-wrap items-center"
     >
       {
-        tools
-          .filter((tool) => !tool.data.hidden)
-          .map((tool) => {
-            return (
-              <li class="text-foreground text-lg">
-                <a
-                  set:html={tool.data.icon}
-                  href={tool.data.tool_url}
-                  class="flex flex-row-reverse justify-center items-center gap-2 border-border p-2 rounded hover:border-primary border-2 transition-colors"
-                >
-                  <span>{tool.data.title}</span>
-                </a>
-              </li>
-            );
-          })
+        tools && tools.length > 0 ? (
+          tools
+            .filter((tool: any) => !tool.data.hidden)
+            .map((tool) => {
+              return (
+                <li class="text-foreground text-lg">
+                  <a
+                    set:html={tool.data.icon}
+                    href={tool.data.tool_url}
+                    class="flex flex-row-reverse justify-center items-center gap-2 border-border p-2 rounded hover:border-primary border-2 transition-colors"
+                  >
+                    <span>{tool.data.title}</span>
+                  </a>
+                </li>
+              );
+            })
+        ) : (
+          <p class="text-destructive text-lg">{t("misc")["notFound"]}</p>
+        )
       }
     </ul>
   </div>

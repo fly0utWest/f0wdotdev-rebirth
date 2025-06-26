@@ -19,9 +19,13 @@ const t = useTranslations(locale!);
     class="flex flex-col flex-wrap gap-4 md:grid md:grid-cols-3 items-center w-full"
   >
     {
-      projects.map((project) => (
-        <ProjectCard ui={t("home.projects")["card"]} project={project.data} />
-      ))
+      projects && projects.length > 0 ? (
+        projects.map((project) => (
+          <ProjectCard ui={t("home.projects")["card"]} project={project.data} />
+        ))
+      ) : (
+        <p class="text-destructive text-lg">{t("misc")["notFound"]}</p>
+      )
     }
   </div>
 </section>
