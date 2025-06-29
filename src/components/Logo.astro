@@ -1,0 +1,17 @@
+---
+interface Props {
+  size?: "sm" | "md" | "lg";
+}
+
+const { size = "md" } = Astro.props;
+
+const sizeMap = {
+  sm: "text-3xl",
+  md: "text-4xl",
+  lg: "text-5xl",
+};
+---
+
+<div class={`text-foreground font-extrabold ${sizeMap[size]}`}>
+  ^_<span class="text-primary animate-pulse">&lt;</span>
+</div>

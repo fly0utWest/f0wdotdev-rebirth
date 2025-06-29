@@ -1,6 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { Image } from "astro:assets";
+import Logo from "./Logo.astro";
 
 const currentPath = Astro.url.pathname;
 const currentLocale = Astro.currentLocale;
@@ -25,8 +25,6 @@ const currentLocale = Astro.currentLocale;
         class="typed-[henlo_:3] typed-caret-width-2 typed-caret typed-caret-space-2 typed-caret-color-primary text-black font-semibold dark:text-white"
       ></span>
     </div>
-    <p class="text-foreground text-3xl font-extrabold">
-      ^_<span class="text-primary animate-pulse">&lt;</span>
-    </p>
+    <Logo />
   </div>
 </header>
