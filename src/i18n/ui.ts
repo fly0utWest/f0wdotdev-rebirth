@@ -17,7 +17,8 @@ export const ui = {
       langs: "languages",
     },
     "home.projects": {
-      title: "projects",
+      personalTitle: "personal projects",
+      commercialTitle: "commercial projects",
       card: {
         clickToShow: "click to show",
         createdAt: "created",
@@ -47,7 +48,8 @@ export const ui = {
       langs: "языки",
     },
     "home.projects": {
-      title: "проекты",
+      personalTitle: "личные проекты",
+      commercialTitle: "коммерческие проекты",
       card: {
         clickToShow: "нажми, чтобы перейти к проекту",
         createdAt: "создан",

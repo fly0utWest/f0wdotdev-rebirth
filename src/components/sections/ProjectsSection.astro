@@ -12,7 +12,7 @@ const t = useTranslations(locale!);
 
 <section class="flex flex-col gap-3">
   <h2 class="text-2xl text-center md:text-left font-bold text-primary">
-    {t("home.projects")["title"]}
+    {t("home.projects")["commercialTitle"]}
   </h2>
 
   <div
@@ -20,9 +20,39 @@ const t = useTranslations(locale!);
   >
     {
       projects && projects.length > 0 ? (
-        projects.map((project) => (
-          <ProjectCard ui={t("home.projects")["card"]} project={project.data} />
-        ))
+        projects
+          .filter((project) => project.data.purpose === "commercial")
+          .map((project) => (
+            <ProjectCard
+              ui={t("home.projects")["card"]}
+              project={project.data}
+            />
+          ))
+      ) : (
+        <p class="text-destructive text-lg">{t("misc")["notFound"]}</p>
+      )
+    }
+  </div>
+</section>
+
+<section class="flex flex-col gap-3">
+  <h2 class="text-2xl text-center md:text-left font-bold text-primary">
+    {t("home.projects")["personalTitle"]}
+  </h2>
+
+  <div
+    class="flex flex-col flex-wrap gap-4 md:grid md:grid-cols-3 items-center w-full"
+  >
+    {
+      projects && projects.length > 0 ? (
+        projects
+          .filter((project) => project.data.purpose === "personal")
+          .map((project) => (
+            <ProjectCard
+              ui={t("home.projects")["card"]}
+              project={project.data}
+            />
+          ))
       ) : (
         <p class="text-destructive text-lg">{t("misc")["notFound"]}</p>
       )

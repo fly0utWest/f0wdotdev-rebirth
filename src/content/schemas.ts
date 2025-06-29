@@ -19,6 +19,7 @@ export const ProjectsSchema = z.object({
   status: z.enum(["beta", "prod", "dev", "fin/archive"]),
   link: z.string().url().or(z.literal("")),
   repo_link: z.string().url().or(z.literal("")),
+  purpose: z.enum(["personal", "commercial"]),
   started: z.string(),
   created: z.string(),
   updated: z.string(),
