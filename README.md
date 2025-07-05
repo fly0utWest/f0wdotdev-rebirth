@@ -39,4 +39,3 @@ or, astro only:
 docker compose -f compose.dev.yaml up --build -d astro
 ```
 
-you must add at least one record for each pb collection, otherwise astro build will crush, that's all, i guess, have fun :)
