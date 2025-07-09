@@ -1,0 +1,13 @@
+---
+import { getCollection } from "astro:content";
+import { useTranslations } from "../../i18n/useTranslations";
+import { languages } from "../../i18n/ui";
+
+const locale = Astro.currentLocale ?? "en";
+const jobExperiences = await getCollection("jobExperiences");
+const t = useTranslations(locale);
+---
+
+<section class="w-full bg-card rounded border-2 border-border p-6 group">
+    
+</section>

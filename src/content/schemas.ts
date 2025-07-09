@@ -9,6 +9,15 @@ export const ToolSchema = z.object({
   hidden: z.boolean(),
 });
 
+export const JobExperienceSchema = z.object({
+  occupation: z.string(),
+  job_title: z.string(),
+  description: z.string(),
+  logo: z.string().url().optional(),
+  start_date: z.string().date(),
+  end_date: z.string().date().optional(),
+});
+
 export const ProjectsSchema = z.object({
   title: z.string(),
   preview: z.string().url(),

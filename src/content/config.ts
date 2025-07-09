@@ -1,12 +1,30 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
 import { getAdminPB } from "../server/pb";
 import {
   ProjectsSchema,
   SocialsSchema,
   ToolSchema,
+  JobExperienceSchema,
 } from "./schemas";
 
 const adminPB = await getAdminPB();
+
+const jobExperiences = defineCollection({
+  loader: async () => {
+    const jobExperiences = await adminPB
+      .collection("experience")
+      .getFullList();
+    const expandedJobExperiences = jobExperiences.map((record) => {
+      const logo = adminPB.files.getURL(record, record.logo);
+      return {
+        ...record,
+        logo,
+      };
+    });
+    return expandedJobExperiences;
+  },
+  schema: JobExperienceSchema,
+});
 
 const projects = defineCollection({
   loader: async () => {
@@ -42,4 +60,4 @@ const socials = defineCollection({
   },
   schema: SocialsSchema,
 });
-export const collections = { tools, socials, projects };
+export const collections = { tools, socials, projects, jobExperiences };
