@@ -16,6 +16,13 @@ export const ui = {
       stack: "stack",
       langs: "languages",
     },
+    "home.experience": {
+      title: "experience",
+      card: {
+        company: "company",
+        position: "position",
+      },
+    },
     "home.projects": {
       personalTitle: "personal projects",
       commercialTitle: "commercial projects",
@@ -46,6 +53,13 @@ export const ui = {
     "home.hero": {
       stack: "инструменты",
       langs: "языки",
+    },
+    "home.experience": {
+      title: "опыт",
+      card: {
+        company: "компания",
+        position: "должность",
+      },
     },
     "home.projects": {
       personalTitle: "личные проекты",

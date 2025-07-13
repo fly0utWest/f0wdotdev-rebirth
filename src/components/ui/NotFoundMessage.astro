@@ -1,0 +1,9 @@
+---
+import { useTranslations } from "../../i18n/useTranslations";
+
+const locale = Astro.currentLocale ?? "en";
+const t = useTranslations(locale);
+---
+
+<p class="text-destructive text-lg">{t("misc")["notFound"]}</p>
+

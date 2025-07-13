@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  listClass?: string;
+  headerClass?: string;
+}
+
+const {
+  title,
+  listClass = "flex lg:justify-center gap-1 md:gap-2 lg:gap-4 flex-wrap items-center",
+  headerClass = "text-xl text-primary lg:text-center mt-6 mb-2",
+} = Astro.props;
+---
+
+<h2 class={headerClass}>
+  {title}
+</h2>
+<div>
+  <ul class={listClass}>
+    <slot />
+  </ul>
+</div>
+

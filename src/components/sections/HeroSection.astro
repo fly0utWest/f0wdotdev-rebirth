@@ -3,13 +3,16 @@ import { getCollection } from "astro:content";
 import { useTranslations } from "../../i18n/useTranslations";
 import bio from "../../data/bio.json";
 import { languages } from "../../i18n/ui";
+import SectionCard from "../layouts/SectionCard.astro";
+import SubSection from "../layouts/SubSection.astro";
+import NotFoundMessage from "../ui/NotFoundMessage.astro";
 
 const locale = Astro.currentLocale ?? "en";
 const tools = await getCollection("tools");
 const t = useTranslations(locale);
 ---
 
-<section class="w-full bg-card rounded border-2 border-border p-6 group">
+<SectionCard>
   <div class="flex flex-col items-center lg:flex-row gap-6">
     <div class="space-y-4">
       <h1
@@ -21,52 +24,40 @@ const t = useTranslations(locale);
       </p>
     </div>
   </div>
-  <h2 class="text-xl text-primary lg:text-center mt-6 mb-2">
-    {t("home.hero")["stack"]}
-  </h2>
-  <div>
-    <ul
-      class="flex lg:justify-center gap-1 md:gap-2 lg:gap-4 flex-wrap items-center"
-    >
-      {
-        tools && tools.length > 0 ? (
-          tools
-            .filter((tool: any) => !tool.data.hidden)
-            .map((tool) => {
-              return (
-                <li class="text-foreground text-lg">
-                  <a
-                    set:html={tool.data.icon}
-                    href={tool.data.tool_url}
-                    class="flex flex-row-reverse justify-center items-center gap-2 border-border p-2 rounded hover:border-primary border-2 transition-colors"
-                  >
-                    <span>{tool.data.title}</span>
-                  </a>
-                </li>
-              );
-            })
-        ) : (
-          <p class="text-destructive text-lg">{t("misc")["notFound"]}</p>
-        )
-      }
-    </ul>
-  </div>
-  <h2 class="text-xl text-primary lg:text-center mt-6 mb-2">
-    {t("home.hero")["langs"]}
-  </h2>
-  <div>
-    <ul
-      class="flex lg:justify-center gap-1 md:gap-2 lg:gap-4 flex-wrap items-center"
-    >
-      {
-        bio[locale as keyof typeof languages].langs?.map((lang) => {
-          return (
-            <li class="text-foreground font-bold p-2 bg-accent rounded text-lg">
-              <span class="text-primary">{lang.lang}</span> ({lang.level})
-            </li>
-          );
-        })
-      }
-    </ul>
-  </div>
-</section>
+
+  <SubSection title={t("home.hero")["stack"]}>
+    {
+      tools && tools.length > 0 ? (
+        tools
+          .filter((tool: any) => !tool.data.hidden)
+          .map((tool) => {
+            return (
+              <li class="text-foreground text-lg">
+                <a
+                  set:html={tool.data.icon}
+                  href={tool.data.tool_url}
+                  class="flex flex-row-reverse justify-center items-center gap-2 border-border p-2 rounded hover:border-primary border-2 transition-colors"
+                >
+                  <span>{tool.data.title}</span>
+                </a>
+              </li>
+            );
+          })
+      ) : (
+        <NotFoundMessage />
+      )
+    }
+  </SubSection>
+
+  <SubSection title={t("home.hero")["langs"]}>
+    {
+      bio[locale as keyof typeof languages].langs?.map((lang) => {
+        return (
+          <li class="text-foreground font-bold p-2 bg-accent rounded text-lg">
+            <span class="text-primary">{lang.lang}</span> ({lang.level})
+          </li>
+        );
+      })
+    }
+  </SubSection>
+</SectionCard>
