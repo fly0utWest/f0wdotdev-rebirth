@@ -2,6 +2,7 @@
 import RootLayout from "../../layouts/RootLayout.astro";
 import HeroSection from "../../components/sections/HeroSection.astro";
 import ProjectsSection from "../../components/sections/ProjectsSection.astro";
+import ExperienceSection from "../../components/sections/ExperienceSection.astro";
 
 export async function getStaticPaths() {
   return [undefined, "ru"].map((lang) => ({ params: { lang } }));
